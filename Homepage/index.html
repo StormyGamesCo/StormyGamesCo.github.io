@@ -91,6 +91,17 @@
     </footer>
 
     <script>
+        // 1. 부드러운 스크롤 함수 (JS 방식)
+        function smoothScroll(event, targetId) {
+            event.preventDefault(); // 기본 '순간이동' 링크 기능을 막습니다.
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth' // 강제로 부드럽게 스크롤하도록 명령
+                });
+            }
+        }
+        
         const translations = {
             ko: {
                 "steam-btn": "지금 스팀에서 보기",
@@ -140,6 +151,7 @@
     </script>
 </body>
 </html>
+
 
 
 
