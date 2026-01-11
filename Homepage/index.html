@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stormy Games</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #0b0e14; color: #ffffff; line-height: 1.6; }
+        /* 초기 깜빡임 방지: 언어 설정 전까지 내용을 잠시 숨깁니다 */
+        body { visibility: hidden; margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #0b0e14; color: #ffffff; line-height: 1.6; }
 
-        /* 🌐 언어 스위치 버튼 스타일 */
         .lang-switch {
             position: fixed; top: 20px; right: 20px; z-index: 1000;
             background: rgba(0,0,0,0.7); padding: 10px; border-radius: 5px; border: 1px solid #66c0f4;
@@ -41,7 +41,7 @@
 <body>
 
     <div class="lang-switch">
-        <button id="btn-ko" class="active" onclick="setLanguage('ko')">KO</button> | 
+        <button id="btn-ko" onclick="setLanguage('ko')">KO</button> | 
         <button id="btn-en" onclick="setLanguage('en')">EN</button>
     </div>
 
@@ -52,7 +52,7 @@
 
     <section>
         <h2 data-key="about-title">게임 소개</h2>
-        <p data-key="about-text">Stormy Games의 환상적인 세계에 오신 것을 환영합니다. 여기에 게임의 주요 특징을 적어주세요.</p>
+        <p data-key="about-text">Stormy Games의 환상적인 세계에 오신 것을 환영합니다.</p>
     </section>
 
     <section style="background-color: #161b22;">
@@ -73,7 +73,6 @@
     </footer>
 
     <script>
-        // 텍스트 데이터 데이터베이스
         const translations = {
             ko: {
                 "steam-btn": "지금 스팀에서 보기",
@@ -94,23 +93,37 @@
         };
 
         function setLanguage(lang) {
-            // 1. 모든 data-key 속성을 가진 엘리먼트를 찾아 텍스트 교체
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 el.innerText = translations[lang][key];
             });
 
-            // 2. 버튼 활성화 상태 표시
             document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             
-            // 3. 브라우저 언어 설정 저장 (선택 사항)
             localStorage.setItem('preferredLang', lang);
+            
+            // 언어 설정이 완료되면 화면을 보여줍니다.
+            document.body.style.visibility = 'visible';
         }
 
-        // 페이지 로드 시 이전에 설정한 언어가 있다면 적용
-        const savedLang = localStorage.getItem('preferredLang') || 'ko';
-        setLanguage(savedLang);
+        // 🚀 언어 자동 선택 로직
+        function initLanguage() {
+            // 1. 유저가 이전에 수동으로 선택한 언어가 있는지 확인
+            const savedLang = localStorage.getItem('preferredLang');
+            
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                // 2. 없다면 브라우저 언어 감지 (한국어면 ko, 그 외엔 en)
+                const browserLang = navigator.language || navigator.userLanguage;
+                const defaultLang = browserLang.startsWith('ko') ? 'ko' : 'en';
+                setLanguage(defaultLang);
+            }
+        }
+
+        // 페이지 로드 시 즉시 실행
+        initLanguage();
     </script>
 
 </body>
