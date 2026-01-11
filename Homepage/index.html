@@ -3,120 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stormy Games - 공식 홈페이지</title>
+    <title>Stormy Games</title>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #0b0e14;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #0b0e14; color: #ffffff; line-height: 1.6; }
 
-        /* 🖼️ 배너 섹션 수정됨 */
+        /* 🌐 언어 스위치 버튼 스타일 */
+        .lang-switch {
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: rgba(0,0,0,0.7); padding: 10px; border-radius: 5px; border: 1px solid #66c0f4;
+        }
+        .lang-switch button {
+            background: none; border: none; color: white; cursor: pointer; font-weight: bold; padding: 5px 10px;
+        }
+        .lang-switch button.active { color: #66c0f4; text-decoration: underline; }
+
         header {
-            height: 90vh; /* 배너를 좀 더 크게 설정 */
-            /* 업로드하신 stormy games 이미지를 배경으로 설정 */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
-                        url('banner.png') no-repeat center/cover; 
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end; /* 텍스트를 이미지 하단에 배치 */
-            align-items: center;
-            text-align: center;
-            padding-bottom: 50px;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('banner.png') no-repeat center/cover;
+            display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding-bottom: 50px;
         }
 
-        header h1 {
-            font-size: 4rem;
-            margin-bottom: 0;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-
-        section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #66c0f4;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin: 40px 0;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-        }
+        section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
+        h2 { font-size: 2.5rem; margin-bottom: 30px; border-bottom: 2px solid #66c0f4; display: inline-block; padding-bottom: 10px; }
+        
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 40px 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         .steam-button {
-            display: inline-block;
-            background-color: #171a21;
-            color: #ffffff;
-            padding: 15px 40px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
-            border: 1px solid #66c0f4;
+            display: inline-block; background-color: #171a21; color: #ffffff; padding: 15px 40px; text-decoration: none;
+            font-size: 1.2rem; font-weight: bold; border-radius: 5px; transition: 0.3s; border: 1px solid #66c0f4;
         }
+        .steam-button:hover { background-color: #66c0f4; color: #171a21; }
 
-        .steam-button:hover {
-            background-color: #66c0f4;
-            color: #171a21;
-        }
-
-        footer {
-            padding: 40px;
-            background-color: #05070a;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #555;
-        }
+        footer { padding: 40px; background-color: #05070a; text-align: center; font-size: 0.9rem; color: #555; }
     </style>
 </head>
 <body>
 
+    <div class="lang-switch">
+        <button id="btn-ko" class="active" onclick="setLanguage('ko')">KO</button> | 
+        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+    </div>
+
     <header>
         <h1 style="display:none;">Stormy Games</h1> 
-        <a href="#steam" class="steam-button">지금 스팀에서 보기</a>
+        <a href="#steam" class="steam-button" data-key="steam-btn">지금 스팀에서 보기</a>
     </header>
 
     <section>
-        <h2>ABOUT THE GAME</h2>
-        <p>[여기에 게임에 대한 설명을 적어주세요]</p>
+        <h2 data-key="about-title">게임 소개</h2>
+        <p data-key="about-text">Stormy Games의 환상적인 세계에 오신 것을 환영합니다. 여기에 게임의 주요 특징을 적어주세요.</p>
     </section>
 
     <section style="background-color: #161b22;">
-        <h2>TRAILER</h2>
+        <h2 data-key="trailer-title">트레일러</h2>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/[유튜브_영상_ID]" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
     <section id="steam">
-        <h2>PLAY ON STEAM</h2>
-        <a href="[스팀_상점_주소]" target="_blank" class="steam-button">VIEW ON STEAM</a>
+        <h2 data-key="play-title">스팀에서 플레이하기</h2>
+        <br>
+        <a href="YOUR_STEAM_URL" target="_blank" class="steam-button" data-key="view-steam">VIEW ON STEAM</a>
     </section>
 
     <footer>
         &copy; 2026 Stormy Games. All Rights Reserved.
     </footer>
+
+    <script>
+        // 텍스트 데이터 데이터베이스
+        const translations = {
+            ko: {
+                "steam-btn": "지금 스팀에서 보기",
+                "about-title": "게임 소개",
+                "about-text": "Stormy Games의 환상적인 세계에 오신 것을 환영합니다. 여기에 게임의 주요 특징을 적어주세요.",
+                "trailer-title": "트레일러",
+                "play-title": "스팀에서 플레이하기",
+                "view-steam": "VIEW ON STEAM"
+            },
+            en: {
+                "steam-btn": "View on Steam Now",
+                "about-title": "ABOUT THE GAME",
+                "about-text": "Welcome to the fantastic world of Stormy Games. Write your game's key features here.",
+                "trailer-title": "TRAILER",
+                "play-title": "PLAY ON STEAM",
+                "view-steam": "VIEW ON STEAM"
+            }
+        };
+
+        function setLanguage(lang) {
+            // 1. 모든 data-key 속성을 가진 엘리먼트를 찾아 텍스트 교체
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                el.innerText = translations[lang][key];
+            });
+
+            // 2. 버튼 활성화 상태 표시
+            document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            
+            // 3. 브라우저 언어 설정 저장 (선택 사항)
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // 페이지 로드 시 이전에 설정한 언어가 있다면 적용
+        const savedLang = localStorage.getItem('preferredLang') || 'ko';
+        setLanguage(savedLang);
+    </script>
 
 </body>
 </html>
