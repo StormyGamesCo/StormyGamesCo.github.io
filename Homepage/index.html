@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stormy Games</title>
     <style>
-        /* 초기 깜빡임 방지: 언어 설정 전까지 내용을 잠시 숨깁니다 */
+        /* 초기 깜빡임 방지 */
         body { visibility: hidden; margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #0b0e14; color: #ffffff; line-height: 1.6; }
 
         .lang-switch {
@@ -17,11 +17,15 @@
         }
         .lang-switch button.active { color: #66c0f4; text-decoration: underline; }
 
+        /* 🖼️ 배너 섹션 수정 완료 */
         header {
-            height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('banner.png') no-repeat center/cover;
+            height: 70vh; /* 높이를 70%로 조정 */
+            /* linear-gradient 삭제하여 원본 밝기로 복구, 캐시 방지용 v=1.1 추가 */
+            background: url('banner.png?v=1.1') no-repeat center/cover;
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding-bottom: 50px;
         }
+
+        header h1 { font-size: 4rem; margin-bottom: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
 
         section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
         h2 { font-size: 2.5rem; margin-bottom: 30px; border-bottom: 2px solid #66c0f4; display: inline-block; padding-bottom: 10px; }
@@ -51,7 +55,7 @@
 
     <section>
         <h2 data-key="about-title">게임 소개</h2>
-        <p data-key="about-text">Stormy Games의 환상적인 세계에 오신 것을 환영합니다.</p>
+        <p data-key="about-text">Stormy Games의 환상적인 세계에 오신 것을 환영합니다. 여기에 게임의 주요 특징을 적어주세요.</p>
     </section>
 
     <section style="background-color: #161b22;">
@@ -74,6 +78,7 @@
     <script>
         const translations = {
             ko: {
+                "steam-btn": "지금 스팀에서 보기",
                 "about-title": "게임 소개",
                 "about-text": "Stormy Games의 환상적인 세계에 오신 것을 환영합니다. 여기에 게임의 주요 특징을 적어주세요.",
                 "trailer-title": "트레일러",
@@ -81,6 +86,7 @@
                 "view-steam": "VIEW ON STEAM"
             },
             en: {
+                "steam-btn": "View on Steam Now",
                 "about-title": "ABOUT THE GAME",
                 "about-text": "Welcome to the fantastic world of Stormy Games. Write your game's key features here.",
                 "trailer-title": "TRAILER",
@@ -89,41 +95,4 @@
             }
         };
 
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                el.innerText = translations[lang][key];
-            });
-
-            document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            
-            localStorage.setItem('preferredLang', lang);
-            
-            // 언어 설정이 완료되면 화면을 보여줍니다.
-            document.body.style.visibility = 'visible';
-        }
-
-        // 🚀 언어 자동 선택 로직
-        function initLanguage() {
-            // 1. 유저가 이전에 수동으로 선택한 언어가 있는지 확인
-            const savedLang = localStorage.getItem('preferredLang');
-            
-            if (savedLang) {
-                setLanguage(savedLang);
-            } else {
-                // 2. 없다면 브라우저 언어 감지 (한국어면 ko, 그 외엔 en)
-                const browserLang = navigator.language || navigator.userLanguage;
-                const defaultLang = browserLang.startsWith('ko') ? 'ko' : 'en';
-                setLanguage(defaultLang);
-            }
-        }
-
-        // 페이지 로드 시 즉시 실행
-        initLanguage();
-    </script>
-
-</body>
-</html>
-
-
+        function setLanguage(lang)
