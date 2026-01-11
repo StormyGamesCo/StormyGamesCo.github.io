@@ -42,6 +42,19 @@
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding-bottom: 50px;
         }
 
+        /* 📱 모바일 대응 (화면 너비 768px 이하) */
+        @media (max-width: 768px) {
+            header {
+                height: 50vh; /* 모바일에서는 배너 높이를 좀 더 줄임 */
+                background-position: center center; /* 이미지를 정중앙에 맞춤 */
+                padding-bottom: 30px;
+            }
+            header h1 { font-size: 2.5rem; } /* 제목 크기 축소 */
+            .steam-button { padding: 12px 25px; font-size: 1rem; } /* 버튼 크기 축소 */
+            section { padding: 50px 20px; }
+            h2 { font-size: 1.8rem; }
+        }
+
         /* 배너 안의 버튼이 이미지에 묻힐 경우를 대비한 그림자 */
         .steam-button {
             display: inline-block; background-color: #171a21; color: #ffffff; padding: 15px 40px; text-decoration: none;
@@ -154,6 +167,7 @@
     </script>
 </body>
 </html>
+
 
 
 
