@@ -3,38 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[게임 제목] - 공식 홈페이지</title>
+    <title>Stormy Games - 공식 홈페이지</title>
     <style>
-        /* 기본 스타일 설정 */
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0e14; /* 어두운 게임 감성 배경색 */
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0b0e14;
             color: #ffffff;
             line-height: 1.6;
         }
 
-        /* 히어로 섹션 (상단 메인) */
+        /* 🖼️ 배너 섹션 수정됨 */
         header {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070') no-repeat center/cover;
+            height: 90vh; /* 배너를 좀 더 크게 설정 */
+            /* 업로드하신 stormy games 이미지를 배경으로 설정 */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                        url('banner.png') no-repeat center/cover; 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end; /* 텍스트를 이미지 하단에 배치 */
             align-items: center;
             text-align: center;
-            padding: 20px;
+            padding-bottom: 50px;
         }
 
         header h1 {
             font-size: 4rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
+            margin-bottom: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
-        /* 섹션 공통 스타일 */
         section {
             padding: 80px 20px;
             max-width: 1000px;
@@ -45,33 +43,26 @@
         h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
-            border-bottom: 2px solid #66c0f4; /* 스팀 포인트 컬러 */
+            border-bottom: 2px solid #66c0f4;
             display: inline-block;
             padding-bottom: 10px;
         }
 
-        /* 유튜브 영상 컨테이너 (16:9 비율 유지) */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; 
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            margin-bottom: 40px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin: 40px 0;
         }
 
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        /* 스팀 버튼 스타일 */
         .steam-button {
             display: inline-block;
             background-color: #171a21;
@@ -81,9 +72,8 @@
             font-size: 1.2rem;
             font-weight: bold;
             border-radius: 5px;
-            transition: background 0.3s ease;
+            transition: 0.3s;
             border: 1px solid #66c0f4;
-            margin-top: 20px;
         }
 
         .steam-button:hover {
@@ -91,16 +81,10 @@
             color: #171a21;
         }
 
-        .steam-button img {
-            width: 20px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-
-        /* 푸터 */
         footer {
             padding: 40px;
             background-color: #05070a;
+            text-align: center;
             font-size: 0.9rem;
             color: #555;
         }
@@ -109,17 +93,13 @@
 <body>
 
     <header>
-        <h1>[게임 제목]</h1>
-        <p>[게임의 짧고 강렬한 슬로건 한 줄을 적어주세요]</p>
+        <h1 style="display:none;">Stormy Games</h1> 
         <a href="#steam" class="steam-button">지금 스팀에서 보기</a>
     </header>
 
     <section>
         <h2>ABOUT THE GAME</h2>
-        <p>
-            [여기에 게임에 대한 자세한 설명을 적으세요. 어떤 장르인지, 어떤 재미가 있는지 등 
-            유저들이 흥미를 느낄 만한 내용을 자유롭게 작성하시면 됩니다.]
-        </p>
+        <p>[여기에 게임에 대한 설명을 적어주세요]</p>
     </section>
 
     <section style="background-color: #161b22;">
@@ -131,15 +111,11 @@
 
     <section id="steam">
         <h2>PLAY ON STEAM</h2>
-        <p>지금 바로 스팀 상점 페이지에서 위시리스트에 추가하거나 플레이해보세요!</p>
-        <a href="[스팀_상점_페이지_주소]" target="_blank" class="steam-button">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam Icon">
-            VIEW ON STEAM
-        </a>
+        <a href="[스팀_상점_주소]" target="_blank" class="steam-button">VIEW ON STEAM</a>
     </section>
 
     <footer>
-        &copy; 2026 [내 게임 회사 이름]. All Rights Reserved.
+        &copy; 2026 Stormy Games. All Rights Reserved.
     </footer>
 
 </body>
