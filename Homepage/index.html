@@ -91,15 +91,15 @@
     </footer>
 
     <script>
-        // 1. 부드러운 스크롤 함수 (JS 방식)
-        function smoothScroll(event, targetId) {
-            event.preventDefault(); // 기본 '순간이동' 링크 기능을 막습니다.
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth' // 강제로 부드럽게 스크롤하도록 명령
-                });
-            }
+        function smoothScroll(targetId) {
+            const target = document.getElementById(targetId);
+            if (!target) return;
+
+            // 브라우저의 기본 스크롤 기능을 코드로 직접 제어
+            window.scrollTo({
+                top: target.offsetTop,
+                behavior: 'smooth'
+            });
         }
         
         const translations = {
@@ -151,6 +151,7 @@
     </script>
 </body>
 </html>
+
 
 
 
