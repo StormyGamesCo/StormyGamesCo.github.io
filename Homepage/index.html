@@ -5,39 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stormy Games</title>
     <style>
-        /* 초기 깜빡임 방지 */
-        body { visibility: hidden; margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #0b0e14; color: #ffffff; line-height: 1.6; }
+        /* 기본적으로 보이게 설정하되, 투명도로 깜빡임 제어 */
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: #0b0e14; 
+            color: #ffffff; 
+            line-height: 1.6;
+            opacity: 0; /* 처음에 투명하게 설정 */
+            transition: opacity 0.3s ease-in; /* 부드럽게 나타나게 함 */
+        }
 
         .lang-switch {
             position: fixed; top: 20px; right: 20px; z-index: 1000;
-            background: rgba(0,0,0,0.7); padding: 10px; border-radius: 5px; border: 1px solid #66c0f4;
+            background: rgba(0,0,0,0.8); padding: 10px; border-radius: 5px; border: 1px solid #66c0f4;
         }
         .lang-switch button {
             background: none; border: none; color: white; cursor: pointer; font-weight: bold; padding: 5px 10px;
         }
         .lang-switch button.active { color: #66c0f4; text-decoration: underline; }
 
-        /* 🖼️ 배너 섹션 수정 완료 */
         header {
-            height: 70vh; /* 높이를 70%로 조정 */
-            /* linear-gradient 삭제하여 원본 밝기로 복구, 캐시 방지용 v=1.1 추가 */
-            background: url('banner.png?v=1.1') no-repeat center/cover;
+            height: 70vh; /* 요청하신 대로 70%로 조정 */
+            /* 배경 어두운 필터 제거, 이미지가 안 나올 경우를 대비해 배경색 설정 */
+            background-color: #1a1a1a;
+            background-image: url('banner.png'); 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding-bottom: 50px;
         }
 
-        header h1 { font-size: 4rem; margin-bottom: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        /* 배너 안의 버튼이 이미지에 묻힐 경우를 대비한 그림자 */
+        .steam-button {
+            display: inline-block; background-color: #171a21; color: #ffffff; padding: 15px 40px; text-decoration: none;
+            font-size: 1.2rem; font-weight: bold; border-radius: 5px; transition: 0.3s; border: 1px solid #66c0f4;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .steam-button:hover { background-color: #66c0f4; color: #171a21; }
 
         section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
         h2 { font-size: 2.5rem; margin-bottom: 30px; border-bottom: 2px solid #66c0f4; display: inline-block; padding-bottom: 10px; }
         
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 40px 0; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        .steam-button {
-            display: inline-block; background-color: #171a21; color: #ffffff; padding: 15px 40px; text-decoration: none;
-            font-size: 1.2rem; font-weight: bold; border-radius: 5px; transition: 0.3s; border: 1px solid #66c0f4;
-        }
-        .steam-button:hover { background-color: #66c0f4; color: #171a21; }
 
         footer { padding: 40px; background-color: #05070a; text-align: center; font-size: 0.9rem; color: #555; }
     </style>
@@ -51,6 +62,7 @@
 
     <header>
         <h1 style="display:none;">Stormy Games</h1> 
+        <a href="#steam" class="steam-button" data-key="steam-btn">지금 스팀에서 보기</a>
     </header>
 
     <section>
@@ -95,4 +107,33 @@
             }
         };
 
-        function setLanguage(lang)
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if(translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+
+            document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            
+            localStorage.setItem('preferredLang', lang);
+            
+            // 모든 처리가 끝나면 본문을 서서히 나타나게 함
+            document.body.style.opacity = 1;
+        }
+
+        window.onload = function() {
+            const savedLang = localStorage.getItem('preferredLang');
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                const browserLang = navigator.language || navigator.userLanguage;
+                const defaultLang = browserLang.startsWith('ko') ? 'ko' : 'en';
+                setLanguage(defaultLang);
+            }
+        };
+    </script>
+</body>
+</html>
