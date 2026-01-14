@@ -4,36 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stormy Games</title>
-    <meta charset="UTF-8">
     <link rel="icon" href="Logo.png" type="image/png">
-    <title>Stormy Games</title>
     <style>
         html {
             scroll-behavior: smooth;
         }
-        /* 기본적으로 보이게 설정하되, 투명도로 깜빡임 제어 */
         body { 
             margin: 0; 
-            font-family: 'Segoe UI', sans-serif; 
+            font-family: 'Segoe UI', 'Noto Sans JP', 'Microsoft YaHei', sans-serif; 
             background-color: #0b0e14; 
             color: #ffffff; 
             line-height: 1.6;
-            opacity: 0; /* 처음에 투명하게 설정 */
-            transition: opacity 0.3s ease-in; /* 부드럽게 나타나게 함 */
+            opacity: 0; 
+            transition: opacity 0.3s ease-in; 
         }
 
         .lang-switch {
             position: fixed; top: 20px; right: 20px; z-index: 1000;
             background: rgba(0,0,0,0.8); padding: 10px; border-radius: 5px; border: 1px solid #66c0f4;
+            display: flex; gap: 5px; align-items: center;
         }
         .lang-switch button {
-            background: none; border: none; color: white; cursor: pointer; font-weight: bold; padding: 5px 10px;
+            background: none; border: none; color: white; cursor: pointer; font-weight: bold; padding: 5px 8px;
+            font-size: 0.85rem;
         }
         .lang-switch button.active { color: #66c0f4; text-decoration: underline; }
+        .lang-divider { color: #444; }
 
         header {
-            height: 70vh; /* 요청하신 대로 70%로 조정 */
-            /* 배경 어두운 필터 제거, 이미지가 안 나올 경우를 대비해 배경색 설정 */
+            height: 70vh;
             background-color: #1a1a1a;
             background-image: url('banner.png'); 
             background-repeat: no-repeat;
@@ -42,20 +41,15 @@
             display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; padding-bottom: 50px;
         }
 
-        /* 📱 모바일 대응 (화면 너비 768px 이하) */
         @media (max-width: 768px) {
-            header {
-                height: 50vh; /* 모바일에서는 배너 높이를 좀 더 줄임 */
-                background-position: center center; /* 이미지를 정중앙에 맞춤 */
-                padding-bottom: 30px;
-            }
-            header h1 { font-size: 2.5rem; } /* 제목 크기 축소 */
-            .steam-button { padding: 12px 25px; font-size: 1rem; } /* 버튼 크기 축소 */
+            header { height: 50vh; padding-bottom: 30px; }
+            header h1 { font-size: 2.5rem; }
+            .steam-button { padding: 12px 25px; font-size: 1rem; }
             section { padding: 50px 20px; }
             h2 { font-size: 1.8rem; }
+            .lang-switch { top: 10px; right: 10px; padding: 5px; }
         }
 
-        /* 배너 안의 버튼이 이미지에 묻힐 경우를 대비한 그림자 */
         .steam-button {
             display: inline-block; background-color: #171a21; color: #ffffff; padding: 15px 40px; text-decoration: none;
             font-size: 1.2rem; font-weight: bold; border-radius: 5px; transition: 0.3s; border: 1px solid #66c0f4;
@@ -75,8 +69,13 @@
 <body>
 
     <div class="lang-switch">
-        <button id="btn-ko" onclick="setLanguage('ko')">KO</button> | 
+        <button id="btn-ko" onclick="setLanguage('ko')">KO</button>
+        <span class="lang-divider">|</span>
         <button id="btn-en" onclick="setLanguage('en')">EN</button>
+        <span class="lang-divider">|</span>
+        <button id="btn-ja" onclick="setLanguage('ja')">JP</button>
+        <span class="lang-divider">|</span>
+        <button id="btn-zh" onclick="setLanguage('zh')">CN</button>
     </div>
 
     <header>
@@ -86,7 +85,7 @@
 
     <section>
         <h2 data-key="about-title">The Shift 게임 소개</h2>
-        <p data-key="about-text">게임 소개글</p>
+        <p data-key="about-text" style="white-space: pre-line;">게임 소개글</p>
     </section>
 
     <section style="background-color: #161b22;">
@@ -107,17 +106,6 @@
     </footer>
 
     <script>
-        function smoothScroll(targetId) {
-            const target = document.getElementById(targetId);
-            if (!target) return;
-
-            // 브라우저의 기본 스크롤 기능을 코드로 직접 제어
-            window.scrollTo({
-                top: target.offsetTop,
-                behavior: 'smooth'
-            });
-        }
-        
         const translations = {
             ko: {
                 "steam-btn": "지금 스팀에서 보기",
@@ -129,10 +117,26 @@
             },
             en: {
                 "steam-btn": "View on Steam Now",
-                "about-title": "The Shift Game Info",
+                "about-title": "About The Shift",
                 "about-text": "You’ve been hired as the night shift operator for the security control room.\nYour mission is simple, yet deadly: Monitor the real-time feeds across five screens,\nspot any anomalies, and survive until morning.",
                 "trailer-title": "TRAILER",
                 "play-title": "WISHLIST ON STEAM",
+                "view-steam": "VIEW ON STEAM"
+            },
+            ja: {
+                "steam-btn": "今すぐSteamで見る",
+                "about-title": "The Shift ゲーム紹介",
+                "about-text": "あなたは警備室の夜間オペレーターとして雇われました。\n任務は単純ですが、命がけです。\n5개의モニターから送られてくるリアルタイム映像を監視し、\n異変を見つけ出し、朝が来るまで生き延びてください。",
+                "trailer-title": "トレーラー",
+                "play-title": "Steamウィ시リスト",
+                "view-steam": "VIEW ON STEAM"
+            },
+            zh: {
+                "steam-btn": "立即在 Steam 上查看",
+                "about-title": "The Shift 游戏介绍",
+                "about-text": "你被聘为监控室的夜班操作员。\n你的任务虽然简单，但却至关重要：\n通过5个屏幕监视实时画面，找出异常情况，\n并坚持活到清晨。",
+                "trailer-title": "预告片",
+                "play-title": "在 Steam 上关注",
                 "view-steam": "VIEW ON STEAM"
             }
         };
@@ -140,38 +144,34 @@
         function setLanguage(lang) {
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
-                if(translations[lang][key]) {
+                if(translations[lang] && translations[lang][key]) {
                     el.innerText = translations[lang][key];
                 }
             });
 
-            document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            // 모든 버튼의 활성화 상태 해제 후 해당 언어만 활성화
+            document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('btn-' + lang.split('-')[0]);
+            if(activeBtn) activeBtn.classList.add('active');
             
             localStorage.setItem('preferredLang', lang);
-            
-            // 모든 처리가 끝나면 본문을 서서히 나타나게 함
             document.body.style.opacity = 1;
         }
 
         window.onload = function() {
             const savedLang = localStorage.getItem('preferredLang');
-            if (savedLang) {
+            if (savedLang && translations[savedLang]) {
                 setLanguage(savedLang);
             } else {
-                const browserLang = navigator.language || navigator.userLanguage;
-                const defaultLang = browserLang.startsWith('ko') ? 'ko' : 'en';
+                const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
+                let defaultLang = 'en';
+                if (browserLang.startsWith('ko')) defaultLang = 'ko';
+                else if (browserLang.startsWith('ja')) defaultLang = 'ja';
+                else if (browserLang.startsWith('zh')) defaultLang = 'zh';
+                
                 setLanguage(defaultLang);
             }
         };
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
