@@ -8,10 +8,11 @@
     <meta property="og:title" content="Stormy Games — Maybe Hero & The Shift">
     <meta property="og:description" content="Discover Maybe Hero, a 2–12 player asymmetric multiplayer game, and The Shift by Stormy Games.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://stormygamesco.github.io/Homepage/assets/maybe-hero-background.jpg">
+    <meta property="og:image" content="https://stormygamesco.github.io/Homepage/assets/maybe-hero-near-miss-card.png">
     <title>Stormy Games — Maybe Hero & The Shift</title>
     <link rel="icon" href="Logo.png" type="image/png">
-    <link rel="preload" as="image" href="assets/maybe-hero-background.jpg">
+    <link rel="preload" as="image" href="assets/maybe-hero-near-miss-wide.png" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="assets/maybe-hero-near-miss-mobile.png" media="(max-width: 768px)">
     <style>
         :root { color-scheme: dark; --background: #091222; --surface: #101e33; --text: #f4f7fc; --muted: #b0bdd0; --accent: #ffd45e; --line: #ffffff24; }
         * { box-sizing: border-box; }
@@ -103,6 +104,24 @@
             .feature-grid { gap: 14px; margin-top: 25px; }
         }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+        /* Near Miss campaign artwork: a wide scene on desktop and an uncropped poster on mobile. */
+        .hero-media { position: absolute; inset: 0; z-index: -2; }
+        .hero-art { z-index: auto; object-position: 70% center; }
+        .hero-copy { max-width: 530px; }
+        .hero-logo { width: min(440px, 100%); height: auto; filter: drop-shadow(0 8px 24px #00000050); }
+        #maybe-hero { position: relative; isolation: isolate; }
+        #maybe-hero::before { content: ''; position: absolute; inset: 0 calc((100% - 100vw) / 2); z-index: -1; background: linear-gradient(180deg, #09122270, #091222eb 65%, #091222), url('assets/maybe-hero-near-miss-sunset.jpg') center top / cover no-repeat; }
+        #maybe-hero .feature { background: #091222c9; }
+        @media (max-width: 768px) {
+            .hero { display: block; min-height: 0; padding: 115px 0 55px; background: var(--background); }
+            .hero-media { position: relative; display: block; width: calc(100% - 40px); max-width: 520px; margin: 0 auto 30px; aspect-ratio: 748 / 896; z-index: auto; border-radius: 12px; overflow: hidden; }
+            .hero-art { position: static; width: 100%; height: 100%; object-fit: contain; }
+            .hero::after { display: none; }
+            .hero-copy { max-width: 100%; }
+            .hero h1 { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); }
+            .hero .eyebrow { margin-bottom: 12px; }
+            .hero-tagline { margin-top: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -121,10 +140,13 @@
     </header>
     <main id="main">
         <section class="hero" aria-labelledby="hero-title">
-            <img class="hero-art" src="assets/maybe-hero-background.jpg" width="1438" height="810" alt="" fetchpriority="high">
+            <picture class="hero-media">
+                <source media="(max-width: 768px)" srcset="assets/maybe-hero-near-miss-mobile.png" width="748" height="896">
+                <img class="hero-art" src="assets/maybe-hero-near-miss-wide.png" width="3840" height="1240" alt="" fetchpriority="high">
+            </picture>
             <div class="container"><div class="hero-copy">
                 <span class="eyebrow">FEATURED GAME</span>
-                <h1 id="hero-title">MAYBE HERO</h1>
+                <h1 id="hero-title"><img class="hero-logo" src="assets/maybe-hero-near-miss-logo.png" width="1280" height="720" alt="Maybe Hero"></h1>
                 <p class="hero-tagline" data-key="hero-tagline">달리고, 조준하고, 타워를 점령하라.</p>
                 <p class="hero-description" data-key="hero-description">타워를 향해 달리는 러너와 위에서 막아서는 스나이퍼. 예측할 수 없는 보급 능력과 함께, 친구들과 나만의 영웅이 되어보세요.</p>
                 <ul class="hero-facts"><li data-key="players">2–12인 멀티플레이</li><li data-key="asymmetric">러너 vs 스나이퍼</li><li>Windows · Steam</li></ul>
@@ -140,7 +162,7 @@
             <h2 class="section-heading" id="games-title" data-key="games-title">Stormy Games의 게임</h2>
             <div class="game-grid">
                 <article class="game-card">
-                    <div class="card-art"><img src="assets/maybe-hero-header.jpg" width="460" height="215" alt="Maybe Hero" loading="lazy"></div>
+                    <div class="card-art"><img src="assets/maybe-hero-near-miss-card.png" width="1232" height="706" alt="Maybe Hero" loading="lazy"></div>
                     <div class="card-body"><h3>Maybe Hero</h3><p data-key="maybe-summary">달리고, 조준하고, 점령하는 비대칭 멀티플레이.</p>
                         <div class="card-links"><a class="text-link" href="https://store.steampowered.com/app/5284210/Maybe_Hero/" target="_blank" rel="noopener noreferrer" data-key="view-steam">Steam에서 보기</a><a href="#maybe-hero" data-key="learn-more">게임 소개</a></div>
                     </div>
