@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#091222">
-    <meta name="description" content="Stormy Games의 Maybe Hero와 The Shift. 게임 소개, 트레일러와 Steam 소식을 만나보세요.">
+    <meta name="description" content="Maybe Hero 정식 출시! 지금 Steam에서 구매하세요. 출시 예고편과 Stormy Games의 게임을 만나보세요.">
     <meta property="og:title" content="Stormy Games — Maybe Hero & The Shift">
-    <meta property="og:description" content="Discover Maybe Hero, a 2–12 player asymmetric multiplayer game, and The Shift by Stormy Games.">
+    <meta property="og:description" content="Maybe Hero is out now on Steam! Watch the launch trailer and discover games by Stormy Games.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://stormygamesco.github.io/Homepage/assets/maybe-hero-near-miss-card.png">
+    <meta property="og:image" content="https://stormygamesco.github.io/Homepage/assets/maybe-hero-clone-chaos-card.png">
     <title>Stormy Games — Maybe Hero & The Shift</title>
     <link rel="icon" href="Logo.png" type="image/png">
-    <link rel="preload" as="image" href="assets/maybe-hero-near-miss-wide.png" media="(min-width: 769px)">
-    <link rel="preload" as="image" href="assets/maybe-hero-near-miss-mobile.png" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="assets/maybe-hero-clone-chaos-wide.png" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="assets/maybe-hero-clone-chaos-mobile.png" media="(max-width: 768px)">
     <style>
         :root { color-scheme: dark; --background: #091222; --surface: #101e33; --text: #f4f7fc; --muted: #b0bdd0; --accent: #ffd45e; --line: #ffffff24; }
         * { box-sizing: border-box; }
@@ -104,13 +104,13 @@
             .feature-grid { gap: 14px; margin-top: 25px; }
         }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
-        /* Near Miss campaign artwork: a wide scene on desktop and an uncropped poster on mobile. */
+        /* Clone Chaos launch artwork: a wide scene on desktop and an uncropped poster on mobile. */
         .hero-media { position: absolute; inset: 0; z-index: -2; }
         .hero-art { z-index: auto; object-position: 70% center; }
         .hero-copy { max-width: 530px; }
         .hero-logo { width: min(440px, 100%); height: auto; filter: drop-shadow(0 8px 24px #00000050); }
         #maybe-hero { position: relative; isolation: isolate; }
-        #maybe-hero::before { content: ''; position: absolute; inset: 0 calc((100% - 100vw) / 2); z-index: -1; background: linear-gradient(180deg, #09122270, #091222eb 65%, #091222), url('assets/maybe-hero-near-miss-sunset.jpg') center top / cover no-repeat; }
+        #maybe-hero::before { content: ''; position: absolute; inset: 0 calc((100% - 100vw) / 2); z-index: -1; background: linear-gradient(180deg, #09122270, #091222eb 65%, #091222), url('assets/maybe-hero-clone-chaos-background.jpg') center top / cover no-repeat; }
         #maybe-hero .feature { background: #091222c9; }
         @media (max-width: 768px) {
             .hero { display: block; min-height: 0; padding: 115px 0 55px; background: var(--background); }
@@ -121,6 +121,16 @@
             .hero h1 { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); }
             .hero .eyebrow { margin-bottom: 12px; }
             .hero-tagline { margin-top: 12px; }
+        }
+        .launch-banner { position: absolute; top: 106px; right: 40px; z-index: 1; margin: 0; padding: 10px 18px; border: 1px solid #68e6ff; border-radius: 999px; background: #062838eb; color: #a8f3ff; font-size: 14px; font-weight: 800; letter-spacing: .06em; text-align: center; }
+        .release { color: #a8f3ff; font-size: 15px; font-weight: 750; }
+        .launch-trailer { padding-block: 45px 65px; }
+        .launch-trailer .section-heading { margin-bottom: 16px; }
+        .launch-trailer-text { margin: 0 0 28px; color: var(--muted); }
+        .launch-trailer .actions { align-items: center; }
+        @media (max-width: 768px) {
+            .launch-banner { position: static; width: fit-content; max-width: calc(100% - 40px); margin: 0 auto 20px; font-size: 12px; }
+            .launch-trailer { padding-block: 25px 45px; }
         }
     </style>
 </head>
@@ -140,29 +150,37 @@
     </header>
     <main id="main">
         <section class="hero" aria-labelledby="hero-title">
+            <p class="launch-banner" data-key="launch-label">정식 출시 · 지금 Steam에서 플레이</p>
             <picture class="hero-media">
-                <source media="(max-width: 768px)" srcset="assets/maybe-hero-near-miss-mobile.png" width="748" height="896">
-                <img class="hero-art" src="assets/maybe-hero-near-miss-wide.png" width="3840" height="1240" alt="" fetchpriority="high">
+                <source media="(max-width: 768px)" srcset="assets/maybe-hero-clone-chaos-mobile.png" width="748" height="896">
+                <img class="hero-art" src="assets/maybe-hero-clone-chaos-wide.png" width="3840" height="1240" alt="" fetchpriority="high">
             </picture>
             <div class="container"><div class="hero-copy">
                 <span class="eyebrow">FEATURED GAME</span>
-                <h1 id="hero-title"><img class="hero-logo" src="assets/maybe-hero-near-miss-logo.png" width="1280" height="720" alt="Maybe Hero"></h1>
+                <h1 id="hero-title"><img class="hero-logo" src="assets/maybe-hero-clone-chaos-logo.png" width="1280" height="720" alt="Maybe Hero"></h1>
                 <p class="hero-tagline" data-key="hero-tagline">달리고, 조준하고, 타워를 점령하라.</p>
                 <p class="hero-description" data-key="hero-description">타워를 향해 달리는 러너와 위에서 막아서는 스나이퍼. 예측할 수 없는 보급 능력과 함께, 친구들과 나만의 영웅이 되어보세요.</p>
                 <ul class="hero-facts"><li data-key="players">2–12인 멀티플레이</li><li data-key="asymmetric">러너 vs 스나이퍼</li><li>Windows · Steam</li></ul>
                 <div class="actions">
-                    <a class="button button-primary" href="https://store.steampowered.com/app/5284210/Maybe_Hero/" target="_blank" rel="noopener noreferrer" data-key="wishlist">Steam에서 찜하기</a>
+                    <a class="button button-primary" href="https://store.steampowered.com/app/5284210/Maybe_Hero/" target="_blank" rel="noopener noreferrer" data-key="buy-now">지금 Steam에서 구매하기</a>
                     <a class="button button-secondary" href="#maybe-hero" data-key="learn-more">게임 소개</a>
                 </div>
-                <p class="release" data-key="release">2026.10.08 출시 예정</p>
+                <p class="release" data-key="release">2026.10.08 정식 출시 · 지금 플레이하세요</p>
             </div></div>
+        </section>
+        <section class="launch-trailer container" id="launch-trailer" aria-labelledby="launch-trailer-title">
+            <span class="eyebrow">OUT NOW / MAYBE HERO</span>
+            <h2 class="section-heading" id="launch-trailer-title" data-key="launch-trailer-title">Maybe Hero 출시 예고편</h2>
+            <p class="launch-trailer-text" data-key="launch-trailer-text">지금 출시되었습니다. 친구들과 함께 당신만의 영웅이 되어보세요.</p>
+            <div class="video-container"><iframe src="https://www.youtube-nocookie.com/embed/Fe4YnXXdVuE" title="Maybe Hero — Launch Trailer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+            <div class="actions"><a class="button button-primary" href="https://store.steampowered.com/app/5284210/Maybe_Hero/" target="_blank" rel="noopener noreferrer" data-key="buy-now">지금 Steam에서 구매하기</a><a class="text-link" href="https://youtu.be/Fe4YnXXdVuE" target="_blank" rel="noopener noreferrer" data-key="watch-trailer">출시 예고편 보기</a></div>
         </section>
         <section class="games container" id="games" aria-labelledby="games-title">
             <span class="eyebrow">OUR GAMES</span>
             <h2 class="section-heading" id="games-title" data-key="games-title">Stormy Games의 게임</h2>
             <div class="game-grid">
                 <article class="game-card">
-                    <div class="card-art"><img src="assets/maybe-hero-near-miss-card.png" width="1232" height="706" alt="Maybe Hero" loading="lazy"></div>
+                    <div class="card-art"><img src="assets/maybe-hero-clone-chaos-card.png" width="1232" height="706" alt="Maybe Hero" loading="lazy"></div>
                     <div class="card-body"><h3>Maybe Hero</h3><p data-key="maybe-summary">달리고, 조준하고, 점령하는 비대칭 멀티플레이.</p>
                         <div class="card-links"><a class="text-link" href="https://store.steampowered.com/app/5284210/Maybe_Hero/" target="_blank" rel="noopener noreferrer" data-key="view-steam">Steam에서 보기</a><a href="#maybe-hero" data-key="learn-more">게임 소개</a></div>
                     </div>
@@ -179,7 +197,7 @@
             <div class="detail-top">
                 <div class="detail-copy"><span class="eyebrow">MAYBE HERO</span><h2 class="section-heading" id="maybe-title" data-key="maybe-title">당신만의 방식으로 영웅이 되세요.</h2>
                     <p data-key="maybe-about">2–12명이 러너와 스나이퍼로 맞붙는 비대칭 멀티플레이 액션. 러너는 모든 점령 지점을 차지하고, 스나이퍼는 제한 시간이 끝날 때까지 타워를 지켜야 합니다.</p>
-                    <div class="actions"><a class="button button-primary" href="https://store.steampowered.com/app/5284210/Maybe_Hero/" target="_blank" rel="noopener noreferrer" data-key="wishlist">Steam에서 찜하기</a><a class="button button-secondary" href="https://store.steampowered.com/app/5284210/Maybe_Hero/#app_apppreview" target="_blank" rel="noopener noreferrer" data-key="watch-trailer">Steam에서 트레일러 보기</a></div>
+                    <div class="actions"><a class="button button-primary" href="https://store.steampowered.com/app/5284210/Maybe_Hero/" target="_blank" rel="noopener noreferrer" data-key="buy-now">지금 Steam에서 구매하기</a><a class="button button-secondary" href="#launch-trailer" data-key="watch-trailer">출시 예고편 보기</a></div>
                 </div>
                 <img class="detail-image" src="assets/maybe-hero-gameplay.jpg" width="1920" height="1080" alt="Maybe Hero gameplay" loading="lazy" data-alt-key="gameplay-alt">
             </div>
@@ -207,61 +225,61 @@
                 'skip': '본문으로 이동', 'nav-games': '게임', 'nav-studio': '스튜디오',
                 'hero-tagline': '달리고, 조준하고, 타워를 점령하라.',
                 'hero-description': '타워를 향해 달리는 러너와 위에서 막아서는 스나이퍼. 예측할 수 없는 보급 능력과 함께, 친구들과 나만의 영웅이 되어보세요.',
-                'players': '2–12인 멀티플레이', 'asymmetric': '러너 vs 스나이퍼', 'wishlist': 'Steam에서 찜하기', 'learn-more': '게임 소개', 'release': '2026.10.08 출시 예정',
+                'players': '2–12인 멀티플레이', 'asymmetric': '러너 vs 스나이퍼', 'buy-now': '지금 Steam에서 구매하기', 'learn-more': '게임 소개', 'release': '2026.10.08 정식 출시 · 지금 플레이하세요',
                 'games-title': 'Stormy Games의 게임', 'maybe-summary': '달리고, 조준하고, 점령하는 비대칭 멀티플레이.', 'shift-summary': '이상 현상을 찾아 아침까지 살아남으세요.',
-                'view-steam': 'Steam에서 보기', 'trailer': '트레일러', 'watch-trailer': 'Steam에서 트레일러 보기',
+                'view-steam': 'Steam에서 보기', 'trailer': '트레일러', 'watch-trailer': '출시 예고편 보기', 'launch-label': '정식 출시 · 지금 Steam에서 플레이', 'launch-trailer-title': 'Maybe Hero 출시 예고편', 'launch-trailer-text': '지금 출시되었습니다. 친구들과 함께 당신만의 영웅이 되어보세요.',
                 'maybe-title': '당신만의 방식으로 영웅이 되세요.', 'maybe-about': '2–12명이 러너와 스나이퍼로 맞붙는 비대칭 멀티플레이 액션. 러너는 모든 점령 지점을 차지하고, 스나이퍼는 제한 시간이 끝날 때까지 타워를 지켜야 합니다.',
                 'runner-title': '달리고, 피하고, 점령하기', 'runner-text': '지형을 활용하고 팀과 함께 목표에 도달하세요. 보급 상자의 비행, 초고속, 투명화 등 일시적인 능력으로 전세를 바꾸세요.',
                 'sniper-title': '타워 위에서 진격 막기', 'sniper-text': '자동소총과 저격소총을 전환하며 러너의 경로를 읽으세요. 시간이 끝날 때까지 하나 이상의 지점을 지켜내면 승리합니다.',
                 'paint-title': '직접 만드는 나만의 영웅', 'paint-text': '캐릭터에 직접 그림을 그리고 색상과 재질을 조절하세요. 저장한 디자인을 방 안의 모든 플레이어에게 보여줄 수 있습니다.',
                 'shift-title': '아침이 올 때까지, 눈을 떼지 마세요.', 'shift-about': '보안 관제실의 야간 근무자가 되어 5개의 화면을 감시하세요. 실시간 영상 속 변화를 찾아내고, 아침이 올 때까지 살아남아야 합니다.',
                 'studio-text': '새로운 플레이, 기억에 남는 순간.', 'gameplay-alt': 'Maybe Hero 러너 시점의 타워 점령 게임 화면',
-                'meta-description': 'Stormy Games의 Maybe Hero와 The Shift. 게임 소개, 트레일러와 Steam 소식을 만나보세요.'
+                'meta-description': 'Maybe Hero 정식 출시! 지금 Steam에서 구매하세요. 출시 예고편과 Stormy Games의 게임을 만나보세요.'
             },
             en: {
                 'skip': 'Skip to content', 'nav-games': 'Games', 'nav-studio': 'Studio',
                 'hero-tagline': 'Run. Aim. Capture the tower.',
                 'hero-description': 'Runners race toward the tower. Snipers defend from above. Turn the tide with unpredictable Supply powers and become your own hero with friends.',
-                'players': '2–12 player multiplayer', 'asymmetric': 'Runners vs Snipers', 'wishlist': 'Wishlist on Steam', 'learn-more': 'About the game', 'release': 'Planned release: October 8, 2026',
+                'players': '2–12 player multiplayer', 'asymmetric': 'Runners vs Snipers', 'buy-now': 'Buy now on Steam', 'learn-more': 'About the game', 'release': 'Released October 8, 2026 · Play now',
                 'games-title': 'Games by Stormy Games', 'maybe-summary': 'Run, aim and capture in asymmetric multiplayer.', 'shift-summary': 'Find the anomalies. Survive until morning.',
-                'view-steam': 'View on Steam', 'trailer': 'Trailer', 'watch-trailer': 'Watch trailer on Steam',
+                'view-steam': 'View on Steam', 'trailer': 'Trailer', 'watch-trailer': 'Watch launch trailer', 'launch-label': 'OUT NOW · AVAILABLE ON STEAM', 'launch-trailer-title': 'Maybe Hero launch trailer', 'launch-trailer-text': 'Available now. Become your own hero with friends.',
                 'maybe-title': 'Become a hero your own way.', 'maybe-about': 'A 2–12 player asymmetric multiplayer action game. Runners capture every active point, while Snipers defend the tower until time runs out.',
                 'runner-title': 'Run, dodge and capture', 'runner-text': 'Use the terrain and reach objectives with your team. Change the battle with temporary Supply powers such as flight, extreme speed and invisibility.',
                 'sniper-title': 'Stop the advance from above', 'sniper-text': 'Read Runner routes and switch between an automatic rifle and a sniper rifle. Keep at least one point unclaimed until time runs out to win.',
                 'paint-title': 'Make your own hero', 'paint-text': 'Paint directly on your character and adjust colors and materials. Save your design and show it to everyone in the Room.',
                 'shift-title': 'Keep watching until morning.', 'shift-about': 'Work the night shift in a security control room. Monitor five live feeds, spot changes and survive until morning.',
                 'studio-text': 'New ways to play. Moments to remember.', 'gameplay-alt': 'Maybe Hero tower capture gameplay from a Runner perspective',
-                'meta-description': 'Discover Maybe Hero and The Shift by Stormy Games. Explore the games, watch trailers and find them on Steam.'
+                'meta-description': 'Maybe Hero is out now on Steam! Watch the launch trailer and discover games by Stormy Games.'
             },
             ja: {
                 'skip': '本文へ移動', 'nav-games': 'ゲーム', 'nav-studio': 'スタジオ',
                 'hero-tagline': '走れ。狙え。タワーを占領せよ。',
                 'hero-description': 'タワーへ駆けるランナーと、上から迎え撃つスナイパー。予測不能な補給能力を使い、友達と自分だけのヒーローになろう。',
-                'players': '2～12人マルチプレイ', 'asymmetric': 'ランナー vs スナイパー', 'wishlist': 'Steamでウィッシュリストに追加', 'learn-more': 'ゲーム紹介', 'release': '2026年10月8日 発売予定',
+                'players': '2～12人マルチプレイ', 'asymmetric': 'ランナー vs スナイパー', 'buy-now': 'Steamで今すぐ購入', 'learn-more': 'ゲーム紹介', 'release': '2026年10月8日 発売 · 今すぐプレイ',
                 'games-title': 'Stormy Gamesのゲーム', 'maybe-summary': '走り、狙い、占領する非対称マルチプレイ。', 'shift-summary': '異変を見つけ、朝まで生き延びよう。',
-                'view-steam': 'Steamで見る', 'trailer': 'トレーラー', 'watch-trailer': 'Steamでトレーラーを見る',
+                'view-steam': 'Steamで見る', 'trailer': 'トレーラー', 'watch-trailer': 'ローンチトレーラーを見る', 'launch-label': '発売中 · Steamで今すぐプレイ', 'launch-trailer-title': 'Maybe Hero ローンチトレーラー', 'launch-trailer-text': 'ついに発売。友達と自分だけのヒーローになろう。',
                 'maybe-title': '自分だけのヒーローになろう。', 'maybe-about': '2～12人がランナーとスナイパーに分かれて戦う非対称マルチプレイアクション。ランナーはすべての拠点を占領し、スナイパーは制限時間までタワーを守ります。',
                 'runner-title': '走り、かわし、占領する', 'runner-text': '地形を活かし、仲間と目標を目指そう。飛行、超高速、透明化など、補給箱から得られる一時的な能力で戦況を変えよう。',
                 'sniper-title': 'タワーから進撃を阻止', 'sniper-text': 'ランナーの経路を読み、自動小銃と狙撃銃を切り替えよう。時間切れまで少なくとも1つの拠点を守れば勝利です。',
                 'paint-title': '自分だけのヒーローを描く', 'paint-text': 'キャラクターに直接絵を描き、色や質感を調整しよう。デザインを保存して、ルームの全員に見せられます。',
                 'shift-title': '朝まで、目を離すな。', 'shift-about': '警備室の夜間オペレーターとなり、5台のモニターを監視しよう。リアルタイム映像の変化を見つけ、朝まで生き延びてください。',
                 'studio-text': '新しい遊び、記憶に残る瞬間。', 'gameplay-alt': 'ランナー視点のMaybe Heroタワー占領ゲーム画面',
-                'meta-description': 'Stormy GamesのMaybe HeroとThe Shift。ゲーム紹介、トレーラー、Steam情報をご覧ください。'
+                'meta-description': 'Maybe Hero発売中！Steamで今すぐ購入。ローンチトレーラーとStormy Gamesのゲームをご覧ください。'
             },
             zh: {
                 'skip': '跳至正文', 'nav-games': '游戏', 'nav-studio': '工作室',
                 'hero-tagline': '奔跑、瞄准、占领高塔。',
                 'hero-description': '奔向高塔的跑者，与从高处阻击的狙击手。利用难以预测的补给能力，与好友一起成为独一无二的英雄。',
-                'players': '2–12人多人对战', 'asymmetric': '跑者 vs 狙击手', 'wishlist': '在Steam加入愿望单', 'learn-more': '游戏介绍', 'release': '预计2026年10月8日发行',
+                'players': '2–12人多人对战', 'asymmetric': '跑者 vs 狙击手', 'buy-now': '立即在Steam购买', 'learn-more': '游戏介绍', 'release': '2026年10月8日正式发行 · 立即游玩',
                 'games-title': 'Stormy Games的游戏', 'maybe-summary': '奔跑、瞄准、占领的非对称多人对战。', 'shift-summary': '发现异常，活到天亮。',
-                'view-steam': '在Steam查看', 'trailer': '预告片', 'watch-trailer': '在Steam观看预告片',
+                'view-steam': '在Steam查看', 'trailer': '预告片', 'watch-trailer': '观看发售预告片', 'launch-label': '正式发售 · 立即在Steam游玩', 'launch-trailer-title': 'Maybe Hero 发售预告片', 'launch-trailer-text': '现已发售。与好友一起成为独一无二的英雄。',
                 'maybe-title': '用自己的方式成为英雄。', 'maybe-about': '2–12名玩家分为跑者和狙击手，展开非对称多人动作对战。跑者需要占领所有有效据点，狙击手则要守住高塔，直到时间耗尽。',
                 'runner-title': '奔跑、闪避、占领', 'runner-text': '利用地形，与队友一起到达目标。补给箱提供飞行、极速、隐身等临时能力，助你扭转战局。',
                 'sniper-title': '从高塔阻止进攻', 'sniper-text': '判断跑者的路线，在自动步枪与狙击步枪之间切换。时间耗尽时，至少守住一个据点即可获胜。',
                 'paint-title': '打造自己的英雄', 'paint-text': '直接在角色身上绘画，调整颜色与材质。保存设计，让房间中的所有玩家都能看到。',
                 'shift-title': '直到天亮，都别移开视线。', 'shift-about': '成为监控室的夜班操作员，监视五个实时画面。找出影像中的变化，努力活到清晨。',
                 'studio-text': '新的玩法，难忘的瞬间。', 'gameplay-alt': 'Maybe Hero跑者视角的高塔占领游戏画面',
-                'meta-description': '探索Stormy Games的Maybe Hero与The Shift。查看游戏介绍、预告片和Steam信息。'
+                'meta-description': 'Maybe Hero正式发售！立即在Steam购买，观看发售预告片并探索Stormy Games的游戏。'
             }
         };
 
